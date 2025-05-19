@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  /* font-family: "Montserrat", sans-serif; */
+  /* font-family: "Noto Sans", sans-serif; */
+  /* font-family: "Work Sans", sans-serif; */
+  font-family: "Quicksand", sans-serif;
+  /* font-family: "Cascadia Mono", sans-serif; */
+  font-optical-sizing: auto;
+  /* font-weight: 200; */
+  font-variation-settings: "wdth" 100;
+}
+
+.hideScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.hideScroller {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

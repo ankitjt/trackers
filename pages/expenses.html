@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>trackers</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body class="h-full bg-white dark:bg-[#222222] p-6">
+
+  <!-- Navbar  -->
+  <nav class="navbar fixed capitalize bottom-10 inset-x-3 bg-[#222] rounded-lg overflow-hidden h-12">
+
+    <!-- Site Navbar  -->
+    <div
+      class="site-navbar absolute h-full -left-[100vw] text-slate-500 font-semibold flex items-center justify-evenly w-full bg-black p-4 transition-all ease-in-out duration-500">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+        class="size-4 hideSiteNav text-yellow-200">
+        <path fill-rule="evenodd"
+          d="M10.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L12.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
+          clip-rule="evenodd" />
+        <path fill-rule="evenodd"
+          d="M4.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L6.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
+          clip-rule="evenodd" />
+      </svg>
+      <a href="../index.html" class="site-link text-white">Hm</a>
+      <span class="rounded-full bg-slate-600 p-[3px]"></span>
+      <a href="./pages/expenses.html" class="site-link">Ex</a>
+      <span class="rounded-full bg-slate-600 p-[3px]"></span>
+      <a href="./pages/habits.html" class="site-link">Hb</a>
+      <span class="rounded-full bg-slate-600 p-[3px]"></span>
+      <a href="./pages/counts.html" class="site-link">Co</a>
+    </div>
+
+    <!-- Page Navbar  -->
+    <div
+      class="page-navbar absolute w-full bg-black p-4 h-full left-0 text-slate-500 flex items-center justify-between">
+
+      <div class="flex items-center gap-x-3 -mt-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+          class="size-4 showSiteNav text-yellow-200">
+          <path fill-rule="evenodd"
+            d="M10.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L12.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
+            clip-rule="evenodd" />
+          <path fill-rule="evenodd"
+            d="M4.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L6.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
+            clip-rule="evenodd" />
+        </svg>
+        <a href="./test.html" class="page-link text-white">Ex</a>
+      </div>
+
+      <div class="nav-links flex items-center gap-x-2 justify-center">
+        <span class="nav-link transition-all ease-in-out duration-500" data-name="Add">Add</span>
+        <span class="bg-slate-600 p-[3px] rounded-full p-1"></span>
+        <span class="nav-link transition-all ease-in-out duration-500 text-white" data-name="Ledger">Lr</span>
+        <span class="bg-slate-600 p-[3px] rounded-full p-1"></span>
+        <span class="nav-link transition-all ease-in-out duration-500" data-name="Stats">St</span>
+        <span class="bg-slate-600 p-[3px] rounded-full p-1"></span>
+        <span class="nav-link transition-all ease-in-out duration-500" data-name="Base">Base</span>
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+
+
+  <!-- Firebase Scripts  -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./scripts/dbConnect.js"></script>
+    <script src="./scripts/index.js"></script> -->
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/expenses.js"></script>
+</body>
+
+</html>
