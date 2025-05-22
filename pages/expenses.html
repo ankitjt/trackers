@@ -13,6 +13,14 @@
 
 <body class="h-full bg-white dark:bg-[#111] py-6 px-3 overflow-x-hidden">
 
+  <!-- Prompts Wrapper  -->
+  <div class="promptsWrapper transition-all ease-in-out duration-500 fixed top-0 z-30 -left-[100vw] w-full h-screen overflow-hidden bg-black/70 flex items-center flex-col justify-center gap-y-3">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 closePrompts absolute left-1/2 -translate-x-1/2 bottom-20 text-white">
+      <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+    </svg>
+  </div>
+
   <!-- Navbar  -->
   <nav
     class="navbar transition-all z-20 ease-in-out duration-500 fixed uppercase bottom-10 inset-x-3 bg-[#222] rounded-lg overflow-hidden h-12">
@@ -74,7 +82,7 @@
 
     <!-- Add New Expense Section -->
     <section data-name="add"
-      class="ex-newExpenseWrapper ex-sections absolute transition-all ease-in-out duration-500 left-0 -left-[100vw] w-full top-10 p-5 ">
+      class="ex-newExpenseWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-10 p-5 ">
 
       <header class="text-center">
         <span class="border-b-4 border-double border-white uppercase text-lg ">New Expense</span>
@@ -87,7 +95,7 @@
           <div class="uppercase flex items-center justify-between dark:text-slate-500 tracking-wider">
             <span>Amount</span>
           </div>
-          <input type="number" name="Expense Amount" id="ex-amount"
+          <input type="number" name="Expense Amount" id="expAmount"
             class="ex-expenseInputs bg-slate-200 rounded-lg p-3 border-transparent">
         </div>
 
@@ -96,7 +104,7 @@
           <div class="uppercase flex items-center justify-between dark:text-slate-500 tracking-wider">
             <span>Details</span>
           </div>
-          <input type="text" name="Expense details" id="ex-details"
+          <input type="text" name="Expense details" id="expDetails"
             class="ex-expenseInputs bg-slate-200 rounded-lg p-3 border-transparent">
         </div>
 
@@ -105,13 +113,15 @@
           <div class="uppercase flex items-center justify-between dark:text-slate-500 tracking-wider">
             <span>Date</span>
           </div>
-          <input type="date" name="Expense date" id="ex-date"
+          <input type="date" name="Expense date" id="expDate"
             class="ex-expenseInputs bg-slate-200 rounded-lg p-3 border-transparent">
         </div>
 
         <!-- Expense Tag  -->
         <div class="ex-tagsWrapper flex flex-col gap-y-3">
-          <span class="uppercase dark:text-slate-500 tracking-wider">Tag</span>
+          <div class="uppercase flex items-center justify-between dark:text-slate-500 tracking-wider">
+            <span>Tag</span>
+          </div>
 
           <div class="ex-tagList w-full flex items-start text-sm overflow-x-auto hideScroller">
 
@@ -204,17 +214,7 @@
 
     <!-- Ledger Section  -->
     <section data-name="ledger"
-      class="ex-ledgerWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] top-10 w-full p-5">
-
-      <!-- Ledger Details  -->
-      <section class="ex-ledger flex flex-col gap-y-10">
-
-        <div class="ledgerDetails flex flex-col gap-y-5 items-center">
-          <div
-            class="ledgerDate sticky text-white top-5 text-center bg-black text-sm tracking-wider p-3 rounded-lg">
-            19/05/2025</div>
-        </div>
-      </section>
+      class="ex-ledgerWrapper ex-sections absolute transition-all ease-in-out duration-500 text-base dark:text-slate-300 text-black left-0 top-10 w-full p-5 flex flex-col gap-y-10">
 
     </section>
 
@@ -466,10 +466,9 @@
   </div>
 
   <!-- Firebase Scripts  -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="./scripts/dbConnect.js"></script>
-    <script src="./scripts/index.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../scripts/dbConnect.js"></script>
   <script src="../scripts/common.js"></script>
   <script src="../scripts/expenses.js"></script>
 </body>
