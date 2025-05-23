@@ -4,6 +4,7 @@ let pageLinks = document.querySelectorAll( ".page-link" );
 let hideSiteNav = document.querySelector( ".hideSiteNav" );
 let showSiteNav = document.querySelector(".showSiteNav")
 let promptsWrapper = document.querySelector(".promptsWrapper")
+let pageTitle = document.querySelector(".pageTitle")
 let today = new Date()
 let year = today.getFullYear()
 let month = String(today.getMonth() + 1).padStart(2, '0')
@@ -64,5 +65,16 @@ const closePrompts = () => {
         prm.remove()
       })
     }
-
 }
+
+let toggleMode = document.querySelector(".toggleMode")
+let viewModes = document.querySelectorAll(".viewModes")
+
+toggleMode.onclick = () => {
+  viewModes.forEach(view => {
+    view.classList.toggle("-right-[100vw]")
+    view.classList.toggle("right-0")
+    
+  })
+}
+
