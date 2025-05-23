@@ -64,13 +64,13 @@
       </div>
 
       <div class="flex items-center gap-x-2 justify-center">
-        <span class="page-link transition-all ease-in-out duration-500" data-name="add">Add</span>
+        <span class="page-link transition-all ease-in-out duration-500" data-name="New Expense">Add</span>
         <span class="bg-slate-600 p-[3px] rounded-full p-1"></span>
-        <span class="page-link transition-all ease-in-out duration-500 text-white" data-name="ledger">Lr</span>
+        <span class="page-link transition-all ease-in-out duration-500 text-white" data-name="Ledger">Lr</span>
         <span class="bg-slate-600 p-[3px] rounded-full p-1"></span>
-        <span class="page-link transition-all ease-in-out duration-500" data-name="stats">St</span>
+        <span class="page-link transition-all ease-in-out duration-500" data-name="Statistics">St</span>
         <span class="bg-slate-600 p-[3px] rounded-full p-1"></span>
-        <span class="page-link transition-all ease-in-out duration-500" data-name="base">Base</span>
+        <span class="page-link transition-all ease-in-out duration-500" data-name="Base Amount">BA</span>
       </div>
 
     </div>
@@ -80,15 +80,27 @@
   <!-- Page Content  -->
   <div class="ex-menuData pageContent h-[85vh] font-semibold dark:text-white text-[#222] overflow-x-hidden overflow-y-auto w-full relative text-sm ">
 
+    <!-- Section Headers  -->
+    <header class="sectionHeaders flex items-center justify-between p-5">
+
+      <div class="pageTitle capitalize text-base transition-all ease-in-out duration-500">Ledger</div>
+
+      <div class="toggleMode h-10 w-10 relative overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 viewModes absolute transition-all ease-in-out duration-300 right-0 top-1/2 -translate-y-1/2" data-view="lightMode">
+          <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 viewModes absolute transition-all ease-in-out duration-300 -right-[100vw] top-1/2 -translate-y-1/2" data-view="darkMode">
+          <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+        </svg>
+
+      </div>
+    </header>
+
     <!-- Add New Expense Section -->
-    <section data-name="add"
-      class="ex-newExpenseWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-10 p-5 ">
+    <section data-name="New Expense"
+      class="ex-newExpenseWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-20 p-5 ">
 
-      <header class="text-center">
-        <span class="border-b-4 border-double border-white uppercase text-lg ">New Expense</span>
-      </header>
-
-      <section class="ex-addNewExpense mt-10 flex flex-col gap-y-8 text-[#222222]">
+      <section class="ex-addNewExpense flex flex-col gap-y-8 text-[#222222]">
 
         <!-- Expense Amount  -->
         <div class="ex-amountWrapper flex flex-col gap-y-1">
@@ -213,17 +225,37 @@
     </section>
 
     <!-- Ledger Section  -->
-    <section data-name="ledger"
-      class="ex-ledgerWrapper ex-sections absolute transition-all ease-in-out duration-500 text-base dark:text-slate-300 text-black left-0 top-10 w-full p-5 flex flex-col gap-y-10">
-
+    <section data-name="Ledger"
+      class="ex-sections absolute transition-all ease-in-out duration-500 text-base dark:text-slate-300 text-black -left-[100vw] top-20 w-full p-5 flex flex-col gap-y-5">
+      <div class="ex-ledgerWrapper flex flex-col gap-y-12"></div>
     </section>
 
     <!-- Statistics Section -->
-    <section data-name="stats"
-      class="ex-statsWrapper ex-sections -left-[100vw] absolute transition-all ease-in-out duration-500 w-full top-10 p-5">
-      <header class="text-center">
-        <span class="border-b-4 border-double border-white uppercase text-xl">Statistics</span>
-      </header>
+    <section data-name="Statistics"
+      class="ex-statsWrapper ex-sections left-0  absolute transition-all ease-in-out duration-500 w-full top-10 p-5">
+
+      <!-- Stats Filter  -->
+      <div class="statsFilter flex items-center justify-between mt-3">
+
+        <div class="dateFilter">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 showDateFilter">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+          </svg>
+          <input type="month" name="" id="" class="statsMonth rounded-lg text-[#111] mt-2 transition-all ease-in-out duration-300 absolute -left-[100vw] ">
+        </div>
+
+        <div class="toggleStatsView">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 statsViewIcons transition-all ease-in-out duration-300" data-statView="chart">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 statsViewIcons transition-all ease-in-out duration-300 hidden" data-chartView="list">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+
+        </div>
+
+      </div>
 
       <!-- Stats Details  -->
       <section class="ex-stats mt-10 flex flex-col gap-y-10">
@@ -233,11 +265,8 @@
     </section>
 
     <!-- Base Amount Section -->
-    <section data-name="base"
+    <section data-name="Base Amount"
       class="ex-baseAmountWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-10 p-5">
-      <header class="text-center">
-        <span class="border-b-4 border-double border-white text-lg">Base Amount</span>
-      </header>
 
       <!-- baseAmount Details  -->
       <section class="ex-baseAmount mt-10 flex flex-col gap-y-10">
