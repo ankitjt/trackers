@@ -14,16 +14,20 @@
 <body class="h-full bg-white dark:bg-[#111] py-6 px-3 overflow-x-hidden">
 
   <!-- Prompts Wrapper  -->
-  <div class="promptsWrapper transition-all ease-in-out duration-500 fixed top-0 z-30 -left-[100vw] w-full h-screen overflow-hidden bg-black/70 flex items-center flex-col justify-center gap-y-3">
+  <div
+    class="promptsWrapper transition-all ease-in-out duration-500 fixed top-0 z-30 -left-[100vw] w-full h-screen overflow-hidden bg-black/70 flex items-center flex-col justify-center gap-y-3">
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 closePrompts absolute left-1/2 -translate-x-1/2 bottom-20 text-white">
-      <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+      class="size-6 closePrompts absolute left-1/2 -translate-x-1/2 bottom-20 text-white">
+      <path fill-rule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
+        clip-rule="evenodd" />
     </svg>
   </div>
 
   <!-- Navbar  -->
   <nav
-    class="navbar transition-all z-20 ease-in-out duration-500 fixed uppercase bottom-10 inset-x-3 bg-[#222] rounded-lg overflow-hidden h-12">
+    class="navbar transition-all z-20 ease-in-out duration-500 fixed uppercase bottom-0 w-full left-0 bg-[#222] rounded-t-lg overflow-hidden h-16">
 
     <!-- Site Navbar  -->
     <div
@@ -78,19 +82,27 @@
   </nav>
 
   <!-- Page Content  -->
-  <div class="ex-menuData pageContent h-[85vh] font-semibold dark:text-white text-[#222] overflow-x-hidden overflow-y-auto w-full relative text-sm ">
+  <div
+    class="ex-menuData pageContent min-h-screen hideScroller font-semibold dark:text-white text-[#222] overflow-x-hidden overflow-y-auto w-full relative text-sm ">
 
     <!-- Section Headers  -->
-    <header class="sectionHeaders flex items-center justify-between p-5">
+    <header class="sectionHeaders fixed bg-black top-0 left-0 w-full z-20 flex items-center justify-between px-5 py-3">
 
       <div class="pageTitle capitalize text-base transition-all ease-in-out duration-500">Ledger</div>
 
       <div class="toggleMode h-10 w-10 relative overflow-hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 viewModes absolute transition-all ease-in-out duration-300 right-0 top-1/2 -translate-y-1/2" data-view="lightMode">
-          <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+          class="size-6 viewModes absolute transition-all ease-in-out duration-300 right-0 top-1/2 -translate-y-1/2"
+          data-view="lightMode">
+          <path
+            d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 viewModes absolute transition-all ease-in-out duration-300 -right-[100vw] top-1/2 -translate-y-1/2" data-view="darkMode">
-          <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+          class="size-5 viewModes absolute transition-all ease-in-out duration-300 -right-[100vw] top-1/2 -translate-y-1/2"
+          data-view="darkMode">
+          <path fill-rule="evenodd"
+            d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+            clip-rule="evenodd" />
         </svg>
 
       </div>
@@ -98,7 +110,7 @@
 
     <!-- Add New Expense Section -->
     <section data-name="New Expense"
-      class="ex-newExpenseWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-20 p-5 ">
+      class="ex-newExpenseWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] min-h-screen w-full top-20 p-5 ">
 
       <section class="ex-addNewExpense flex flex-col gap-y-8 text-[#222222]">
 
@@ -137,73 +149,85 @@
 
           <div class="ex-tagList w-full flex items-start text-sm overflow-x-auto hideScroller">
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 rounded-lg text-center gap-y-1 text-orange-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 rounded-lg text-center gap-y-1 text-orange-500"
               data-tag="Groceries" data-color="orange-500">
               <i class="fa-solid fa-cart-shopping fa-2x"></i>
               <span>Groceries</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-indigo-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-indigo-500"
               data-tag="Food" data-color="indigo-500">
               <i class="fa-solid fa-utensils fa-2x"></i>
               <span>Food</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-rose-300"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-rose-300"
               data-tag="Bills" data-color="rose-300">
               <i class="fa-solid fa-file-invoice fa-2x"></i>
               <span>Bills</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-blue-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-blue-500"
               data-tag="Home" data-color="blue-500">
               <i class="fa-solid fa-house-chimney fa-2x"></i>
               <span>Home</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-amber-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-amber-500"
               data-tag="Travel" data-color="amber-500">
               <i class="fa-solid fa-car fa-2x"></i>
               <span>Travel</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-emerald-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-emerald-500"
               data-tag="Saved" data-color="emerald-500">
               <i class="fa-solid fa-piggy-bank fa-2x"></i>
               <span>Saved</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 text-indigo-800 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 text-indigo-800 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1"
               data-tag="Ent" data-color="indigo-800">
               <i class="fa-solid fa-video fa-2x"></i>
               <span>Ent</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-violet-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-violet-500"
               data-tag="Invest" data-color="violet-500">
               <i class="fa-solid fa-hand-holding-dollar fa-2x"></i>
               <span>Invest</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-lime-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-lime-500"
               data-tag="Markets" data-color="lime-500">
               <i class="fa-solid fa-arrow-trend-up fa-2x"></i>
               <span>Markets</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-slate-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-slate-500"
               data-tag="-ve" data-color="slate-500">
               <i class="fa-solid fa-heart-circle-exclamation fa-2x"></i>
               <span>-ve</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-rose-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-rose-500"
               data-tag="Later" data-color="rose-500">
               <i class="fa-solid fa-rotate-left fa-2x"></i>
               <span>Later</span>
             </div>
 
-            <div class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-emerald-500"
+            <div
+              class="ex-tag transition-all ease-in-out duration-500 w-24 flex-shrink-0 flex flex-col p-2 items-center rounded-lg justify-center text-center gap-y-1 text-emerald-500"
               data-tag="Medical" data-color="text-emerald-500">
               <i class="fa-solid fa-hand-holding-medical fa-2x"></i>
               <span>Medical</span>
@@ -215,7 +239,8 @@
 
         <!-- Add Expense to Database  -->
         <button
-          class="ex-addExpense ex-addButtons flex items-center justify-center mx-auto bg-black text-slate-200 rounded-lg py-3 px-6 gap-x-3" data-button="addExpense">
+          class="ex-addExpense ex-addButtons flex items-center justify-center mx-auto bg-black text-slate-200 rounded-lg py-3 px-6 gap-x-3"
+          data-button="addExpense">
           <span class="uppercase">Add</span>
           <i class="fa-solid fa-circle-play fa-1x"></i>
         </button>
@@ -226,31 +251,39 @@
 
     <!-- Ledger Section  -->
     <section data-name="Ledger"
-      class="ex-sections absolute transition-all ease-in-out duration-500 text-base dark:text-slate-300 text-black -left-[100vw] top-20 w-full p-5 flex flex-col gap-y-5">
+      class="ex-sections absolute transition-all ease-in-out duration-500 text-base dark:text-slate-300 text-black min-h-screen left-0 top-20 w-full p-5 pb-28 flex flex-col gap-y-5">
       <div class="ex-ledgerWrapper flex flex-col gap-y-12"></div>
     </section>
 
     <!-- Statistics Section -->
     <section data-name="Statistics"
-      class="ex-statsWrapper ex-sections left-0  absolute transition-all ease-in-out duration-500 w-full top-10 p-5">
+      class="ex-statsWrapper ex-sections min-h-screen -left-[100vw] absolute transition-all ease-in-out duration-500 w-full top-10 p-5">
 
       <!-- Stats Filter  -->
       <div class="statsFilter flex items-center justify-between mt-3">
 
         <div class="dateFilter">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 showDateFilter">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6 showDateFilter">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
           </svg>
-          <input type="month" name="" id="" class="statsMonth rounded-lg text-[#111] mt-2 transition-all ease-in-out duration-300 absolute -left-[100vw] ">
+          <input type="month" name="" id=""
+            class="statsMonth rounded-lg text-[#111] mt-2 transition-all ease-in-out duration-300 absolute -left-[100vw] ">
         </div>
 
         <div class="toggleStatsView">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 statsViewIcons transition-all ease-in-out duration-300" data-statView="chart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6 statsViewIcons transition-all ease-in-out duration-300"
+            data-statView="chart">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 statsViewIcons transition-all ease-in-out duration-300 hidden" data-chartView="list">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6 statsViewIcons transition-all ease-in-out duration-300 hidden"
+            data-chartView="list">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
           </svg>
 
         </div>
@@ -266,7 +299,7 @@
 
     <!-- Base Amount Section -->
     <section data-name="Base Amount"
-      class="ex-baseAmountWrapper ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-10 p-5">
+      class="ex-baseAmountWrapper min-h-screen ex-sections absolute transition-all ease-in-out duration-500 -left-[100vw] w-full top-10 p-5">
 
       <!-- baseAmount Details  -->
       <section class="ex-baseAmount mt-10 flex flex-col gap-y-10">
@@ -290,7 +323,8 @@
 
           <!-- Add Base Amount to Database  -->
           <button
-            class="ex-addBaseAmount ex-addButtons flex items-center justify-center mx-auto bg-black text-slate-200 rounded-lg px-6 py-3 gap-x-3" data-button="addBaseAmount">
+            class="ex-addBaseAmount ex-addButtons flex items-center justify-center mx-auto bg-black text-slate-200 rounded-lg px-6 py-3 gap-x-3"
+            data-button="addBaseAmount">
             <span class="uppercase">Add</span>
             <i class="fa-solid fa-circle-play fa-1x"></i>
           </button>
@@ -312,8 +346,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -330,8 +363,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -348,8 +380,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -366,8 +397,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -384,8 +414,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -402,8 +431,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -420,8 +448,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -438,8 +465,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -456,8 +482,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -474,8 +499,7 @@
                 <div class="ex-base-year ml-1">2025</div>
               </div>
               <div class="ex-baseAmountHistory flex items-center gap-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="size-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                   <path fill-rule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9 7.5A.75.75 0 0 0 9 9h1.5c.98 0 1.813.626 2.122 1.5H9A.75.75 0 0 0 9 12h3.622a2.251 2.251 0 0 1-2.122 1.5H9a.75.75 0 0 0-.53 1.28l3 3a.75.75 0 1 0 1.06-1.06L10.8 14.988A3.752 3.752 0 0 0 14.175 12H15a.75.75 0 0 0 0-1.5h-.825A3.733 3.733 0 0 0 13.5 9H15a.75.75 0 0 0 0-1.5H9Z"
                     clip-rule="evenodd" />
@@ -498,8 +522,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="../scripts/dbConnect.js"></script>
-  <script src="../scripts/common.js"></script>
-  <script src="../scripts/expenses.js"></script>
+  <!-- <script src="../scripts/common.js"></script>
+  <script src="../scripts/expenses.js"></script> -->
+  <script src="../scripts/expenses2.js" type="module"></script>
 </body>
 
 </html>

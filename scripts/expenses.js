@@ -1,50 +1,56 @@
-let ex_sections = document.querySelectorAll(".ex-sections")
-let exAddButtons = document.querySelectorAll(".ex-addButtons");
+let ex_sections = document.querySelectorAll( ".ex-sections" );
+let exAddButtons = document.querySelectorAll( ".ex-addButtons" );
 let currentPage = '';
 
 // Fetching data from Database ( Firestore )
-(() => {
-  let expenseLedger = document.querySelector(".ex-ledgerWrapper")
+( () =>
+{
+  let expenseLedger = document.querySelector( ".ex-ledgerWrapper" );
 
-  db.collection("expenseDetails")
-    .orderBy("expDate", "desc")
-    .onSnapshot(querySnapshot => {
+  db.collection( "expenseDetails" )
+    .orderBy( "expDate", "desc" )
+    .onSnapshot( querySnapshot =>
+    {
       // Clear old HTML
-      expenseLedger.innerHTML = ''
-      
-      // Group data by dates
-      const groupedData = {}
+      expenseLedger.innerHTML = '';
 
-      querySnapshot.forEach(doc => {
-        const data = doc.data()
-        const date = data.expDate
-        if (!groupedData[ date ]) {
-          groupedData[ date ] = []
+      // Group data by dates
+      const groupedData = {};
+
+      querySnapshot.forEach( doc =>
+      {
+        const data = doc.data();
+        const date = data.expDate;
+        if ( !groupedData[ date ] )
+        {
+          groupedData[ date ] = [];
         }
-        groupedData[ date ].push({
+        groupedData[ date ].push( {
           id: doc.id,
           ...data
-        })
-      })
+        } );
+      } );
 
-      Object.keys(groupedData).forEach(date => {
-        let ledgerDate = document.createElement("div")
-        let groupContainer = document.createElement("div")
-        groupContainer.classList.add("flex", "flex-col", "gap-y-8")
+      Object.keys( groupedData ).forEach( date =>
+      {
+        let ledgerDate = document.createElement( "div" );
+        let groupContainer = document.createElement( "div" );
+        groupContainer.classList.add( "flex", "flex-col", "gap-y-8" );
 
         ledgerDate.innerHTML = `
           <div
             class="ledgerDate sticky text-white top-5 text-center text-xs ">
-            <span class="bg-[#222] tracking-wider p-3 rounded-lg">${date}</span>
+            <span class="bg-[#222] tracking-wider p-3 rounded-lg">${ date }</span>
           </div>
-        `
-        groupContainer.appendChild(ledgerDate)
+        `;
+        groupContainer.appendChild( ledgerDate );
 
-        groupedData[ date ].forEach(entry => {
-          let entryDetails = document.createElement("div")
-          let tagTextColor = `text-${entry.tagColor}`
-          entryDetails.classList.add("entryDetails","rounded-lg", "p-3", "flex","items-center","justify-between","dark:bg-black/70", "bg-slate-200", "relative")
-          entryDetails.id = entry.id
+        groupedData[ date ].forEach( entry =>
+        {
+          let entryDetails = document.createElement( "div" );
+          let tagTextColor = `text-${ entry.tagColor }`;
+          entryDetails.classList.add( "entryDetails", "rounded-lg", "p-3", "flex", "items-center", "justify-between", "dark:bg-black/70", "bg-slate-200", "relative" );
+          entryDetails.id = entry.id;
 
           entryDetails.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 absolute left-1/2 -translate-x-1/2 -bottom-2 text-rose-600 deleteEntry">
@@ -52,8 +58,8 @@ let currentPage = '';
         </svg>
 
           <div class="left flex flex-col justify-start">
-            <span class="capitalize">${entry.expDetails}</span>
-             <span class="${tagTextColor} font-bold text-xs uppercase">${entry.tag} </span>
+            <span class="capitalize">${ entry.expDetails }</span>
+             <span class="${ tagTextColor } font-bold text-xs uppercase">${ entry.tag } </span>
           </div>
 
           <div class="right flex items-center justify-end text-right gap-x-1">
@@ -65,140 +71,136 @@ let currentPage = '';
             </span>
           </div>
 
-          `
-          groupContainer.appendChild(entryDetails)
-        })
-        expenseLedger.appendChild(groupContainer)
-        
-      })
-    })
-})();
+          `;
+          groupContainer.appendChild( entryDetails );
+        } );
+        expenseLedger.appendChild( groupContainer );
 
-// Highlighting Page Links 
-pageLinks.forEach(page =>
-  {
-      page.onclick = () =>
-      {
-        currentPage = page.dataset.name
-        console.log(currentPage)
-        if (currentPage === "Statistics") {
-          runStats(currentPage)
-        }
-      pageLinks.forEach( link =>
-      {
-          link.classList.remove( "text-white" );
       } );
-        page.classList.add("text-white");
-        ex_sections.forEach(section => {
-          section.classList.add("-left-[100vw]")
-          section.classList.remove("left-0")
-          window.scrollTo({top: 0})
-          if (page.dataset.name === section.dataset.name) {
-            section.classList.remove("-left-[100vw]")
-            section.classList.add("left-0")
-            pageTitle.textContent = section.dataset.name
-          }
-        })
-      };
-});
+    } );
+} )();
+
+
 
 // Add button actions 
-exAddButtons.forEach(addButton => {
-  addButton.onclick = () => {
-    if (addButton.dataset.button === "addExpense") {
-      expenseInputs()
+exAddButtons.forEach( addButton =>
+{
+  addButton.onclick = () =>
+  {
+    if ( addButton.dataset.button === "addExpense" )
+    {
+      expenseInputs();
     }
-    if (addButton.dataset.button === "addBaseAmount") {
-      console.log("Add Base Amount button clicked.")
+    if ( addButton.dataset.button === "addBaseAmount" )
+    {
+      console.log( "Add Base Amount button clicked." );
     }
-  }
-})
+  };
+} );
 
 // Getting Tags
-let tags = document.querySelectorAll(".ex-tag")
-let selectedTag = ''
-let selectedColor = ''
-tags.forEach(tag => {
-  tag.onclick = () => {
-    tags.forEach(clearTag => {
-      clearTag.classList.remove("bg-black")
-    })
-    tag.classList.add("bg-black")
-    selectedTag = tag.dataset.tag
-    selectedColor = tag.dataset.color
-  }
-})
+let tags = document.querySelectorAll( ".ex-tag" );
+let selectedTag = '';
+let selectedColor = '';
+tags.forEach( tag =>
+{
+  tag.onclick = () =>
+  {
+    tags.forEach( clearTag =>
+    {
+      clearTag.classList.remove( "bg-black" );
+    } );
+    tag.classList.add( "bg-black" );
+    selectedTag = tag.dataset.tag;
+    selectedColor = tag.dataset.color;
+  };
+} );
 
 // Getting Expense Inputs Data and checks.
-const expenseInputs = () => {
-  let expenseInputs = document.querySelectorAll(".ex-expenseInputs")
-  let allFilled = true
-  let formData = {}
+const expenseInputs = () =>
+{
+  let expenseInputs = document.querySelectorAll( ".ex-expenseInputs" );
+  let allFilled = true;
+  let formData = {};
 
-  expenseInputs.forEach(input => {
-    if (input.value === "") {
-      allFilled = false
-      input.classList.add('border-2', 'border-rose-600')
-      prompts(`${input.getAttribute("id")} cannot be empty`, "fail")
+  expenseInputs.forEach( input =>
+  {
+    if ( input.value === "" )
+    {
+      allFilled = false;
+      input.classList.add( 'border-2', 'border-rose-600' );
+      prompts( `${ input.getAttribute( "id" ) } cannot be empty`, "fail" );
     }
-    else {
-      input.classList.remove("border", "border-rose-600")
+    else
+    {
+      input.classList.remove( "border", "border-rose-600" );
     }
-  })
+  } );
 
-  if (selectedTag === "") {
-    allFilled = false
-    prompts("Select a Tag", "fail")
+  if ( selectedTag === "" )
+  {
+    allFilled = false;
+    prompts( "Select a Tag", "fail" );
   }
 
-  if (allFilled) {
-    expenseInputs.forEach(input => {
-      let objKey = input.getAttribute("id")
-      formData[ objKey ] = input.value
-    })
+  if ( allFilled )
+  {
+    expenseInputs.forEach( input =>
+    {
+      let objKey = input.getAttribute( "id" );
+      formData[ objKey ] = input.value;
+    } );
 
-    formData[ "tag" ] = selectedTag
-    formData[ "tagColor" ] = selectedColor
-    formData[ "entryDate" ] = todayDate
-    formData[ "firebaseDate" ] = firebase.firestore.FieldValue.serverTimestamp()
-    formData["entryYear"] = year
-    formData[ "entryMonth" ] = month
-    formData["entryDate"] = date
+    formData[ "tag" ] = selectedTag;
+    formData[ "tagColor" ] = selectedColor;
+    formData[ "entryDate" ] = todayDate;
+    formData[ "firebaseDate" ] = firebase.firestore.FieldValue.serverTimestamp();
+    formData[ "entryYear" ] = year;
+    formData[ "entryMonth" ] = month;
+    formData[ "entryDate" ] = date;
 
-    db.collection("expenseDetails").add(formData)
-      .then(() => {
-        prompts("Expense added successfully !!!", "success")
-        tags.forEach(clearTag => {
-          clearTag.classList.remove("bg-black")
-        })
-        expenseInputs.forEach(input => {
-          input.value = ""
-        })
-      })
-      .catch(err => {
-        prompts(err, "fail")
-      })
+    db.collection( "expenseDetails" ).add( formData )
+      .then( () =>
+      {
+        prompts( "Expense added successfully !!!", "success" );
+        tags.forEach( clearTag =>
+        {
+          clearTag.classList.remove( "bg-black" );
+        } );
+        expenseInputs.forEach( input =>
+        {
+          input.value = "";
+        } );
+      } )
+      .catch( err =>
+      {
+        prompts( err, "fail" );
+      } );
   }
-}
+};
 
-let toggleStatsView = document.querySelector(".toggleStatsView")
-let statsViewIcons = document.querySelectorAll(".statsViewIcons")
-let showDateFilter = document.querySelector(".showDateFilter")
-let statsMonth = document.querySelector(".statsMonth")
+let toggleStatsView = document.querySelector( ".toggleStatsView" );
+let statsViewIcons = document.querySelectorAll( ".statsViewIcons" );
+let showDateFilter = document.querySelector( ".showDateFilter" );
+let statsMonth = document.querySelector( ".statsMonth" );
 
-const runStats = () => {
+const runStats = () =>
+{
   // UI Views.
-  toggleStatsView.onclick = () => {
-    statsViewIcons.forEach(viewIcons => {
-      viewIcons.classList.toggle("hidden")
-    })
-  }
+  toggleStatsView.onclick = () =>
+  {
+    statsViewIcons.forEach( viewIcons =>
+    {
+      viewIcons.classList.toggle( "hidden" );
+    } );
+  };
 
-  showDateFilter.onclick = () => {
-    statsMonth.classList.toggle("-left-[100vw]")
-    statsMonth.classList.toggle("left-5")
-  }
-  
+  showDateFilter.onclick = () =>
+  {
+    statsMonth.classList.toggle( "-left-[100vw]" );
+    statsMonth.classList.toggle( "left-5" );
+  };
+
 }
 
 
