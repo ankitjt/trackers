@@ -1,3 +1,5 @@
+import { prompts } from './prompts.js';
+
 let siteNavbar = document.querySelector( ".site-navbar" );
 let siteLinks = document.querySelectorAll( ".site-link" );
 let hideSiteNav = document.querySelector( ".hideSiteNav" );
@@ -69,7 +71,6 @@ pageLinks.forEach( link =>
 {
   link.onclick = () =>
   {
-    let currentPage = link.dataset.name;
     pageLinks.forEach( page =>
     {
       page.classList.remove( "text-white" );
@@ -89,3 +90,39 @@ pageLinks.forEach( link =>
     } );
   };
 } );
+
+export const deleteEntry = () =>
+{
+  let deleteEntry = document.querySelectorAll( ".deleteEntry" );
+  deleteEntry.forEach( entry =>
+  {
+    entry.onclick = () =>
+    {
+      let text = "Are you sure want to delete the record?";
+      if ( confirm( text ) === true )
+      {
+        let targetEntry = entry.parentElement.getAttribute( "id" );
+        if ( entry.dataset.delete === "delBaseAmount" )
+        {
+          db.collection( "baseAmounts" ).doc( targetEntry ).delete()
+            .then( () =>
+            {
+              prompts( "Record deleted successfully.", "success" );
+            } )
+            .catch( err => prompts( err, 'fail' ) );
+        }
+        if ( entry.dataset.delete === "delLedger" )
+        {
+          db.collection( "expenseDetails" ).doc( targetEntry ).delete()
+            .then( () =>
+            {
+              prompts( "Record deleted successfully.", "success" );
+            } )
+            .catch( err => prompts( err, 'fail' ) );
+        }
+      }
+    };
+  } );
+
+}
+
