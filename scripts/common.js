@@ -60,5 +60,32 @@ toggleMode.onclick = () =>
     view.classList.toggle( "right-0" );
 
   } );
-}
+};
 
+const pageLinks = document.querySelectorAll( ".page-link" );
+let pageTitle = document.querySelector( ".pageTitle" );
+let exPageSections = document.querySelectorAll( ".ex-sections" );
+pageLinks.forEach( link =>
+{
+  link.onclick = () =>
+  {
+    let currentPage = link.dataset.name;
+    pageLinks.forEach( page =>
+    {
+      page.classList.remove( "text-white" );
+    } );
+    link.classList.add( "text-white" );
+    exPageSections.forEach( section =>
+    {
+      section.classList.add( "-left-[100vw]" );
+      section.classList.remove( "left-0" );
+      window.scrollTo( { top: 0 } );
+      if ( section.dataset.name === link.dataset.name )
+      {
+        section.classList.remove( "-left-[100vw]" );
+        section.classList.add( "left-0" );
+        pageTitle.textContent = section.dataset.name;
+      }
+    } );
+  };
+} );
