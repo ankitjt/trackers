@@ -60,7 +60,7 @@ addExpenseBtn.onclick = e =>
     } );
     formData[ "tag" ] = selectedTag;
     formData[ "tagColor" ] = selectedColor;
-    formData[ "entryDate" ] = dateToday;
+    formData[ "entryFullDate" ] = dateToday;
     formData[ "firebaseTimestamp" ] = firebase.firestore.FieldValue.serverTimestamp();
     formData[ "entryYear" ] = year;
     formData[ "entryMonth" ] = month;

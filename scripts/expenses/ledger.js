@@ -2,6 +2,7 @@ import { prompts } from '../prompts.js';
 
 const expenseLedger = document.querySelector( ".ex-ledgerWrapper" );
 
+
 ( () =>
 {
 
