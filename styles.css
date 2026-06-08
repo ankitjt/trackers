@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 * {
-  font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.stylishFont {
-  font-family: 'Lavishly Yours', cursive;
-  font-weight: 800;
-  font-style: normal;
+    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Baloo 2", sans-serif; */
+    /* font-family: "Nunito", sans-serif; */
+    font-optical-sizing: auto;
+    font-style: normal;
 }
