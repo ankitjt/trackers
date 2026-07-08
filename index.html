@@ -27,28 +27,30 @@
       <div class="expenseDetails font-bold">
         <div class="flex flex-col gap-y-3">
 
-          <div class="row_1 flex items-center gap-x-3">
+          <div class="row_1 flex items-center gap-x-5">
             <div class="expenseDate w-1/2 h-full">
               <input type="date" name="" id="" class="newExpenseDate bg-white rounded-lg px-2 py-3 text-sm w-full">
             </div>
 
             <div class="expenseCat w-1/2 h-full">
-              <select name="" id="" class="newExpenseCat bg-white text-xs font-bold rounded-lg px-2 py-3 w-full">
+              <select name="" id="" class="newExpenseCat bg-white text-sm font-bold rounded-lg px-2 py-3 w-full">
                 <option value="select text-xs lowercase">Category</option>
                 <option value="petrol" class="text-xs lowercase">Petrol</option>
-                <option value="Mobile" class="text-xs lowercase">Mobile</option>
-                <option value="Subscription" class="text-xs lowercase">Subscription</option>
-                <option value="Baby" class="text-xs lowercase">Baby</option>
-                <option value="Groceries" class="text-xs lowercase">GROCERIES</option>
-                <option value="Order In" class="text-xs lowercase">ORDER IN</option>
-                <option value="Outing" class="text-xs lowercase">OUTING</option>
-                <option value="Shopping" class="text-xs lowercase">SHOPPING</option>
-                <option value="Home" class="text-xs lowercase">HOME</option>
-                <option value="Car" class="text-xs lowercase">CAR</option>
-                <option value="Grooming" class="text-xs lowercase">GROOMING</option>
-                <option value="Random" class="text-xs lowercase">RANDOM</option>
-                <option value="Medicines" class="text-xs lowercase">MEDICINES</option>
-                <option value="Medical" class="text-xs lowercase">MEDICAL</option>
+                <option value="mobile" class="text-xs lowercase">Mobile</option>
+                <option value="subscription" class="text-xs lowercase">Subscription</option>
+                <option value="baby" class="text-xs lowercase">Baby</option>
+                <option value="groceries" class="text-xs lowercase">GROCERIES</option>
+                <option value="orderIn" class="text-xs lowercase">ORDER IN</option>
+                <option value="outing" class="text-xs lowercase">OUTING</option>
+                <option value="shopping" class="text-xs lowercase">SHOPPING</option>
+                <option value="home" class="text-xs lowercase">HOME</option>
+                <option value="car" class="text-xs lowercase">CAR</option>
+                <option value="grooming" class="text-xs lowercase">GROOMING</option>
+                <option value="random" class="text-xs lowercase">RANDOM</option>
+                <option value="medicines" class="text-xs lowercase">MEDICINES</option>
+                <option value="medical" class="text-xs lowercase">MEDICAL</option>
+                <option value="sm" class="text-xs lowercase">Sm</option>
+                <option value="al" class="text-xs lowercase">Al</option>
               </select>
             </div>
           </div>
@@ -71,7 +73,7 @@
 
       <div class="remainingWrapper flex items-center gap-x-3">
         <span class="bg-black text-white rounded-lg px-2 py-1">R</span>
-        <span class="remaining">33,000</span>
+        <span class="remaining">0</span>
       </div>
       <div class="baseAmountWrapper flex items-center gap-x-3 ">
         <span class="bg-amber-500 text-white rounded-lg px-2 py-1">B</span>
@@ -94,11 +96,10 @@
     </div>
 
     <!-- Transaction  -->
-
     <div class="transactions mt-5 p-3">
 
       <!-- Filters  -->
-      <div class="filters flex items-start justify-start gap-x-6">
+      <div class="filters flex items-start justify-between">
 
         <span class="categoryFilter">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
@@ -111,67 +112,46 @@
         </span>
 
 
-        <div class="dateFilter relative inline-flex items-center gap-2 -mt-2">
-
-          <!-- Display -->
-          <button type="button" class="display flex items-center gap-2 px-3 py-2">
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 icon">
-              <path
-                d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
-              <path fill-rule="evenodd"
-                d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
-                clip-rule="evenodd" />
-            </svg>
-
-            <span class="value hidden font-bold"></span>
-
-          </button>
-
-          <!-- Clear Button -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="size-5 clearBtn hidden text-red-500">
-            <path fill-rule="evenodd"
-              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
-              clip-rule="evenodd" />
-          </svg>
-
-          <!-- Hidden Month Input -->
-          <input type="month" class="monthInput absolute opacity-0 pointer-events-none">
+        <div class="dateFilterWrapper">
+          <input type="month" name="" id="" class="dateFilter w-36 text-sm uppercase font-bold">
         </div>
 
       </div>
 
-      <!-- Category Total -->
+      <!-- Category Cards -->
       <div class="allCategoryTotal mt-5 flex flex-col gap-y-6">
 
-        <div class="petrol category rounded-lg bg-orange-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="petrol category rounded-lg bg-orange-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="petrol">
           <div class="icon flex items-center gap-x-3 w-1/2">
             <img src="./icons/petrol.svg" alt="petrol" srcset="" class="iconImage h-5 w-5">
             <div class="iconName mt-1 capitalize">Petrol</div>
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">38000</div>
-            <div class="spentPercentage">( 12.85% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="mobile category rounded-lg bg-yellow-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="mobile category rounded-lg bg-rose-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="mobile">
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/mobile.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
             <div class="iconName mt-1 capitalize">mobile</div>
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3 ">
-            <div class=" spentAmount">15600</div>
-            <div class="spentPercentage">( 05.00% )</div>
+            <div class=" spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="subscription rounded-lg bg-emerald-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div
+          class="subscription category rounded-lg bg-olive-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="subscription">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/subscription.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -179,13 +159,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">1250</div>
-            <div class="spentPercentage">( 04.36% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="baby rounded-lg bg-blue-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="baby category rounded-lg bg-emerald-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="baby">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/baby.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -193,13 +174,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">10000</div>
-            <div class="spentPercentage">( 10.00% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="groceries rounded-lg bg-purple-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="groceries category rounded-lg bg-zinc-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="groceries">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/groceries.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -207,27 +189,29 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">2800</div>
-            <div class="spentPercentage">( 9.44% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="orderIn rounded-lg bg-orange-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="orderIn category rounded-lg bg-pink-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="orderIn">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/orderIn.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
-            <div class="iconName mt-1 capitalize">order In</div>
+            <div class="iconName mt-1 capitalize">orderIn</div>
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">3900</div>
-            <div class="spentPercentage">( 9.24% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="outing rounded-lg bg-zinc-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="outing category rounded-lg bg-violet-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="outing">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/restaurant.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -235,13 +219,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">5500</div>
-            <div class="spentPercentage">( 8.99% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="shopping rounded-lg bg-lime-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="shopping category rounded-lg bg-sky-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="shopping">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/shopping.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -249,13 +234,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">1100</div>
-            <div class="spentPercentage">( 2.12% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="home rounded-lg bg-teal-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="home category rounded-lg bg-cyan-600 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="home">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/home.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -263,13 +249,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">15500</div>
-            <div class="spentPercentage">( 24.29% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="car rounded-lg bg-cyan-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="car category rounded-lg bg-lime-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="car">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/car.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -277,13 +264,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">1200</div>
-            <div class="spentPercentage">( 8.99% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="grooming rounded-lg bg-sky-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="grooming category rounded-lg bg-indigo-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="grooming">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/grooming.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -291,13 +279,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">1000</div>
-            <div class="spentPercentage">( 2.99% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="random rounded-lg bg-indigo-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="random category rounded-lg bg-yellow-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="random">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/random.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -305,13 +294,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">2800</div>
-            <div class="spentPercentage">( 8.99% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="medicines rounded-lg bg-violet-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="medicines category rounded-lg bg-teal-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="medicines">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/medicines.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -319,13 +309,14 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">5500</div>
-            <div class="spentPercentage">( 8.99% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
 
-        <div class="medical rounded-lg bg-stone-400 p-3 text-sm font-bold flex items-center justify-between">
+        <div class="medical category rounded-lg bg-slate-400 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="medical">
 
           <div class="icon flex items-center gap-x-3 ">
             <img src="./icons/medical.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
@@ -333,8 +324,38 @@
           </div>
 
           <div class="spentDetails flex justify-between text-right gap-x-3">
-            <div class="spentAmount">500</div>
-            <div class="spentPercentage">( 1.23% )</div>
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
+          </div>
+
+        </div>
+
+        <div class="sm category rounded-lg bg-rose-600 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="sm">
+
+          <div class="icon flex items-center gap-x-3 ">
+            <img src="./icons/wrong.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
+            <div class="iconName mt-1 capitalize">sm</div>
+          </div>
+
+          <div class="spentDetails flex justify-between text-right gap-x-3">
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
+          </div>
+
+        </div>
+
+        <div class="Al category rounded-lg bg-rose-600 p-3 text-sm font-bold flex items-center justify-between"
+          data-category="Al">
+
+          <div class="icon flex items-center gap-x-3 ">
+            <img src="./icons/wrong.svg" alt="mobile" srcset="" class="iconImage h-5 w-5 bg-transparent">
+            <div class="iconName mt-1 capitalize">Al</div>
+          </div>
+
+          <div class="spentDetails flex justify-between text-right gap-x-3">
+            <div class="spentAmount">0</div>
+            <div class="spentPercentage">( 0% )</div>
           </div>
 
         </div>
@@ -358,33 +379,8 @@
           </div>
         </div>
 
-        <div class="dateFilter relative inline-flex items-center gap-2">
-
-          <!-- Display -->
-          <button type="button" class="display flex items-center gap-2 px-3 py-2">
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 icon">
-              <path
-                d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
-              <path fill-rule="evenodd"
-                d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
-                clip-rule="evenodd" />
-            </svg>
-
-            <span class="value hidden font-bold mt-1"></span>
-
-          </button>
-
-          <!-- Clear Button -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-            class="size-5 clearBtn hidden text-red-500">
-            <path fill-rule="evenodd"
-              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
-              clip-rule="evenodd" />
-          </svg>
-
-          <!-- Hidden Month Input -->
-          <input type="month" class="monthInput absolute opacity-0 pointer-events-none">
+        <div class="dateFilterWrapper">
+          <input type="month" name="" id="" class="dateFilter w-36 uppercase text-sm font-bold">
         </div>
 
       </div>
