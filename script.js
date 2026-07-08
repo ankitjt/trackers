@@ -12,6 +12,7 @@ import {
     serverTimestamp,
     query,
     limit,
+    where,
     orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
 
@@ -29,70 +30,94 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Global Variables
+let globalBaseAmount = 0;
+let currentMonth = getCurrentMonthKey()
+let currentMonthExpenses = [];
+const categoryCards = document.querySelectorAll(".category")
+const remaining = document.querySelector(".remaining")
+
+function getCurrentMonthKey() {
+
+    const today = new Date();
+
+    return `${today.getFullYear()}-${String(
+        today.getMonth() + 1
+    ).padStart(2, "0")}`;
+};
+
 
 
 const dateFilters = document.querySelectorAll(".dateFilter");
+for (let dateFilter of dateFilters) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
 
-dateFilters.forEach(filter => {
+    dateFilter.value = `${year}-${month}`;
+}
 
-    const display = filter.querySelector(".display");
-    const icon = filter.querySelector(".icon");
-    const value = filter.querySelector(".value");
-    const clearBtn = filter.querySelector(".clearBtn");
-    const monthInput = filter.querySelector(".monthInput");
+// dateFilters.forEach(filter => {
 
-    // Open native month picker
-    display.addEventListener("click", () => {
-        monthInput.showPicker?.();
-        monthInput.click();
-    });
+//     const display = filter.querySelector(".display");
+//     const icon = filter.querySelector(".icon");
+//     const value = filter.querySelector(".value");
+//     const clearBtn = filter.querySelector(".clearBtn");
+//     const monthInput = filter.querySelector(".monthInput");
 
-    // Month selected
-    monthInput.addEventListener("change", () => {
+//     // Open native month picker
+//     display.addEventListener("click", () => {
+//         monthInput.showPicker?.();
+//         monthInput.click();
+//     });
 
-        if (!monthInput.value) return;
+//     // Month selected
+//     monthInput.addEventListener("change", () => {
 
-        const [year, month] = monthInput.value.split("-");
+//         if (!monthInput.value) return;
 
-        const date = new Date(year, month - 1);
+//         const [year, month] = monthInput.value.split("-");
 
-        value.textContent = date.toLocaleDateString("en-US", {
-            month: "short",
-            year: "numeric"
-        });
+//         const date = new Date(year, month - 1);
 
-        icon.classList.add("hidden");
-        value.classList.remove("hidden");
-        clearBtn.classList.remove("hidden");
+//         value.textContent = date.toLocaleDateString("en-US", {
+//             month: "short",
+//             year: "numeric"
+//         });
 
-        // Optional: store for filtering
-        filter.dataset.month = monthInput.value;
+//         icon.classList.add("hidden");
+//         value.classList.remove("hidden");
+//         clearBtn.classList.remove("hidden");
 
-        console.log(filter.dataset.month);
-    });
+//         // Optional: store for filtering
+//         filter.dataset.month = monthInput.value;
 
-    // Clear selection
-    clearBtn.addEventListener("click", (e) => {
+//         console.log(filter.dataset.month);
+//     });
 
-        e.stopPropagation();
+//     // Clear selection
+//     clearBtn.addEventListener("click", (e) => {
 
-        monthInput.value = "";
-        filter.dataset.month = "";
+//         e.stopPropagation();
 
-        value.textContent = "";
+//         monthInput.value = "";
+//         filter.dataset.month = "";
 
-        icon.classList.remove("hidden");
-        value.classList.add("hidden");
-        clearBtn.classList.add("hidden");
-    });
+//         value.textContent = "";
 
-});
+//         icon.classList.remove("hidden");
+//         value.classList.add("hidden");
+//         clearBtn.classList.add("hidden");
+//     });
 
-const categories = document.querySelectorAll(".category")
+// });
+
+// Showing category wise transactions.
+
 const closeCategoryPage = document.querySelector(".closeCategoryPage")
 const categoryBreakdown = document.querySelector(".categoryBreakdown")
 
-for (let category of categories) {
+for (let category of categoryCards) {
     category.addEventListener("click", () => {
         categoryBreakdown.classList.remove("hidden")
         let catName = category.querySelector(".iconName").innerText
@@ -111,23 +136,37 @@ closeCategoryPage.addEventListener("click", () => {
     categoryBreakdown.classList.add("hidden")
 })
 
+
+
+// Adding new expense to Db 
 const newExpenseDate = document.querySelector(".newExpenseDate")
 const newExpenseCat = document.querySelector(".newExpenseCat")
 const newExpenseAmount = document.querySelector(".newExpenseAmount")
 const submitNewExpense = document.querySelector(".submitNewExpense")
 const loader = document.querySelector(".loader")
 
-// Adding new expense to Db 
 submitNewExpense.onclick = async () => {
 
     if (newExpenseDate.value === "" || newExpenseCat.value === 'select' || newExpenseAmount.value === "") return alert('Invalid input');
+
+    const today = new Date();
+
+    const monthKey =
+        `${today.getFullYear()}-${String(
+            today.getMonth() + 1
+        ).padStart(2, "0")}`;
+
+    const [year, month] = monthKey.split("-")
 
     loader.classList.remove("hidden")
     try {
         await addDoc(collection(db, 'expenseTrackers'), {
             newExpenseDate: newExpenseDate.value,
-            newExpenseCat: newExpenseCat.value,
-            newExpenseAmount: newExpenseAmount.value.trim(),
+            category: newExpenseCat.value,
+            amount: Number(newExpenseAmount.value.trim()),
+            monthKey: monthKey,
+            year: Number(year),
+            month: Number(month),
             createdOn: serverTimestamp(),
         });
         newExpenseDate.value = ""
@@ -150,7 +189,6 @@ let updateBaseAmount = document.querySelector(".updateBaseAmount")
 const baseAmountWrapper = document.querySelector(".baseAmountWrapper")
 const baseAmountUpdateWrapper = document.querySelector(".baseAmountUpdateWrapper");
 
-let globalBaseAmount = 0;
 
 (() => {
     const q = query(
@@ -171,10 +209,14 @@ let globalBaseAmount = 0;
 
         baseAmount.innerText = data.baseAmount;
         globalBaseAmount = Number(data.baseAmount)
-        latestBaseAmount()
+        // latestBaseAmount()
+        updateCategoryCards()
+        loadMonthExpense(currentMonth)
     });
 })();
 
+
+// Update Base Amount
 baseAmountWrapper.addEventListener("click", () => {
     baseAmountUpdateWrapper.classList.toggle("hidden")
 })
@@ -205,6 +247,83 @@ updateBaseAmount.onclick = async () => {
 
 }
 
-const latestBaseAmount = () => {
-    console.log(globalBaseAmount, typeof (globalBaseAmount))
+
+// Update Category Cards
+const updateCategoryCards = () => {
+    const categoryTotals = {}
+    let totalSpent = 0
+
+    currentMonthExpenses.forEach(expense => {
+        const category = expense.category
+        const amount = Number(expense.amount)
+        categoryTotals[category] = (categoryTotals[category] || 0) + amount;
+        totalSpent += amount;
+    })
+
+    categoryCards.forEach(card => {
+
+        const category =
+            card.dataset.category;
+
+        const spentAmount =
+            card.querySelector(".spentAmount");
+
+        const spentPercentage =
+            card.querySelector(".spentPercentage");
+
+        const total =
+            categoryTotals[category] || 0;
+
+        const percentage =
+            globalBaseAmount > 0
+                ? (
+                    (total / globalBaseAmount)
+                    * 100
+                ).toFixed(2)
+                : "0.00";
+
+        spentAmount.textContent =
+            total.toLocaleString("en-IN");
+
+        spentPercentage.textContent =
+            `(${percentage}%)`;
+
+
+    });
+
+    const remainingBalance =
+        globalBaseAmount - totalSpent;
+    document.querySelector(".remaining")
+        .textContent =
+        remainingBalance.toLocaleString("en-IN");
+
 }
+
+// Loading Month Data
+const loadMonthExpense = monthKey => {
+    const q = query(
+        collection(db, "expenseTrackers"),
+        where(
+            "monthKey",
+            "==",
+            monthKey
+        )
+    );
+
+    onSnapshot(q, snap => {
+
+        currentMonthExpenses = [];
+
+        snap.forEach(doc => {
+
+            currentMonthExpenses.push({
+                id: doc.id,
+                ...doc.data()
+            });
+        });
+
+        updateCategoryCards();
+    });
+}
+
+loadMonthExpense(currentMonth)
